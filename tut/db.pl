@@ -46,7 +46,28 @@ brother(bob, bil).
 get_brother:-
     parent(X, carl), 
     brother(X, Y),
-                  write('Complete'),
+                  write(X), nl,
                     write(Y), nl.
             
  
+
+blushes(X) :- human(X).
+human(kevin).
+
+
+stabs(tybalt, mercutio, sword).
+hates(romeo, X) :- stabs(X, mercutio, sword).
+
+% FUNCTORS / STRUCTURES
+owns(alice, pet(cat, olive)).
+
+customer(steve, taylor, 123.88).
+customer(alisa, taylor, 5.90).
+
+get_customer_bal(Fname, Lname) :-
+        customer(Fname, Lname, Bal), 
+        format('~w owes us $~2f ~n', [Lname, Bal]).
+
+
+vertical(line(X, Y), point(X, Y2)).
+horizontal(line(X, Y), point(X2, Y)).
